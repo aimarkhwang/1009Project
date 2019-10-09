@@ -53,20 +53,24 @@ public class Crawl {
 		
 		try {
 			Document doc = Jsoup.connect(URL).get();
-			Elements elemImg = doc.select(selector + " img");
-			Elements elemA = doc.select(selector + " a");
+			Elements elemImg = doc.select(".info_movie img");
+			Elements elemA = doc.select(".wrap_link a");
 			
-			for(Element element: elemA) {
-				System.out.println(element.attr("href"));
-			}
+//			for(Element element: elemA) {
+//				System.out.println(element.attr("href"));
+//			}
 			
-			int i = 1; // 순위 증가값
+			String moiveUrl = "https://movie.daum.net";
+//			System.out.println(moiveUrl + elemA.get(0).attr("href"));
+			
+			int i = 0; // 순위 증가값
 			for(Element element: elemImg) {
 				MovieVO vo = new MovieVO();
-				vo.setRank(i++);
+				
 				vo.setTitle(element.attr("alt"));
-				vo.setImg(element.attr("src"));
-//				vo.setLink(link);
+				vo.setImg("https:" + element.attr("src"));
+				vo.setLink(moiveUrl + elemA.get(0).attr("href"));
+				vo.setRank(1+i++);
 				list.add(vo);
 	        } 
 

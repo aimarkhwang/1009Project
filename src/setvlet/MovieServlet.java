@@ -42,8 +42,8 @@ public class MovieServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		// 내가 만든 크롤러 부름
-		ArrayList<MovieVO> list = Crawl.daumMovie();    // 크롤링을 해온 데이터 넣기
-		ArrayList<IssueVO> voList = new ArrayList<>(); // json 으로 뿌리기 위한 list
+		ArrayList<MovieVO> voList = Crawl.daumMovie();    // 크롤링을 해온 데이터 넣기
+//		ArrayList<IssueVO> voList = new ArrayList<>(); // json 으로 뿌리기 위한 list
 		
 //		int i = 1;
 //		for (String s : list) {
@@ -53,9 +53,9 @@ public class MovieServlet extends HttpServlet {
 //			voList.add(vo);
 //		}
 //		
-//		Gson gson = new Gson();
-//		String json = gson.toJson(voList);
-//		out.println(json);
+		Gson gson = new Gson();
+		String json = gson.toJson(voList);
+		out.println(json);
 		
 	}
 
