@@ -43,6 +43,7 @@ public class MyServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 //		response.setContentType("text/html; charset=UTF-8");
 		response.setContentType("application/json; charset=UTF-8");
+		setAccessControlHeaders(response);
 		PrintWriter out = response.getWriter();
 
 		// 내가 만든 크롤러 부름
@@ -77,5 +78,12 @@ public class MyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	protected void setAccessControlHeaders(HttpServletResponse resp) {
+	      resp.setHeader("Access-Control-Allow-Origin", "*");
+	      resp.setHeader("Access-Control-Allow-Methods", "GET, POST");
+	      resp.setHeader("Access-Control-Max-Age", "3600");
+	      resp.setHeader("Access-Control-Allow-Headers", "Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers,Authorization");
+	  }
 
 }
