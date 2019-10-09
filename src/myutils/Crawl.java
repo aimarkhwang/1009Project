@@ -56,10 +56,6 @@ public class Crawl {
 			Elements elemImg = doc.select(".info_movie img");
 			Elements elemA = doc.select(".wrap_link a");
 			
-//			for(Element element: elemA) {
-//				System.out.println(element.attr("href"));
-//			}
-			
 			String moiveUrl = "https://movie.daum.net";
 //			System.out.println(moiveUrl + elemA.get(0).attr("href"));
 			
@@ -69,7 +65,7 @@ public class Crawl {
 				
 				vo.setTitle(element.attr("alt"));
 				vo.setImg("https:" + element.attr("src"));
-				vo.setLink(moiveUrl + elemA.get(0).attr("href"));
+				vo.setLink(moiveUrl + elemA.get(i).attr("href"));
 				vo.setRank(1+i++);
 				list.add(vo);
 	        } 

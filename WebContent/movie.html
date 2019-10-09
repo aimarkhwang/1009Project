@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$.getJSON("http://localhost:8080/1009/movie", function(result){
+    	$.each(result, function(i, field){
+    		$("div").append(field.rank + ". " + field.title + "<br>");
+    		$("div").append("<a href='" + field.link + "' target='_blank'>" + "<img src='" + field.img + "'><br></a>");
+    	});
+	});
+});
+</script>
+</head>
+<body>
+<div></div>
+</body>
+</html>
